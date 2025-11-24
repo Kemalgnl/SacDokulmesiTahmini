@@ -1,0 +1,12 @@
+pyrebase4
+firebase-admin
+opencv-python
+numpy
+requests
+scikit-learn
+pandas
+matplotlib
+seaborn
+xgboost
+lightgbm
+catboost
