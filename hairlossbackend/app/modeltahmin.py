@@ -7,7 +7,7 @@ from datetime import datetime
 
 from app.photoAnalyze import sonuc_yorumla
 
-veri = pd.read_csv('app/hair_loss_90k.csv', header=0)
+veri = pd.read_csv('hairlossbackend/app//hair_loss_90k.csv', header=0)
 
 
 def veri_kontrol(trained_models,test_verisi):
