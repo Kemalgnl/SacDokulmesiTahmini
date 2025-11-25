@@ -13,8 +13,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.multiclass import OneVsRestClassifier, OneVsOneClassifier
 
-import seaborn as sns
-import matplotlib.pyplot as plt
+#import seaborn as sns
+#import matplotlib.pyplot as plt
 import random
 import os
 
@@ -237,14 +237,14 @@ def ModelPerformansMatrisi(algoritmalar, egitim_verisi):
         except Exception as e:
             print(f"{model_adi} için hata: {e}")
             performans_matrisi.loc[model_adi] = None
-
+    '''
     plt.figure(figsize=(8, 5))
     sns.heatmap(performans_matrisi.astype(float), annot=True, cmap='YlOrRd', fmt='.2f')
     plt.title('Model Performans Matrisi')
     plt.xlabel('Saç Dökülme Seviyesi')
     plt.ylabel('Model')
     plt.show()
-
+    '''
     en_iyi_modeller = {}
     for sinif in sorted(set(y)):
         en_iyi_model = performans_matrisi[sinif].idxmax()
