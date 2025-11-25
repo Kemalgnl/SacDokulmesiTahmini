@@ -85,13 +85,12 @@ def model_Train():
     X = veri.drop(columns=["hair_fall"])
     y = veri["hair_fall"]
 
-    ss = StandardScaler()
-    X_test = ss.transform(X)
-
-
     X_egitim, X_test, y_egitim, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
     )
+
+    ss = StandardScaler()
+    X_test = ss.transform(X_test)
 
     rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
     svm_model = SVC(kernel="rbf", random_state=42, probability=True)
