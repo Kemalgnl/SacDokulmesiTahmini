@@ -90,6 +90,7 @@ def model_Train():
     )
 
     ss = StandardScaler()
+    X_egitim = ss.fit_transform(X_egitim)
     X_test = ss.transform(X_test)
 
     rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
