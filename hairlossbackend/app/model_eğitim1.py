@@ -40,7 +40,7 @@ def model_Train():
     global rf_model, logreg_model, knn_model, xgb_model, ann_model, lgbm_model, catboost_model, benim_modelim
     global lgbm_model_ova,catboost_model_ova, lgbm_model_ovo, catboost_model_ovo, performans_matrisi, train_data
 
-    veri = pd.read_csv('hairlossbackend/app//hair_loss_90k.csv', header=0)
+    veri = pd.read_csv(os.path.join(os.path.dirname(__file__), "hair_loss_90k.csv"))
     class BenimModelim:
         def __init__(self):
             self.katsayilar = None
