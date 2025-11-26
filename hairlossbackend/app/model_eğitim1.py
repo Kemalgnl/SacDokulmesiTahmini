@@ -35,11 +35,13 @@ catboost_model_ovo = None
 performans_matrisi = None
 train_data = None
 
+print("model eğitim1 e girildi")
 # -----------------------------------------sayısal analiz model eğitimi ----------
 def model_Train():
     global trained_models
     global rf_model, logreg_model, knn_model, xgb_model, ann_model, lgbm_model, catboost_model, benim_modelim
     global lgbm_model_ova,catboost_model_ova, lgbm_model_ovo, catboost_model_ovo, performans_matrisi, train_data
+    print("model train başladı")
 
     veri = pd.read_csv(os.path.join(os.path.dirname(__file__), "hair_loss_90k.csv"))
     class BenimModelim:
@@ -80,7 +82,7 @@ def model_Train():
 
             return np.array(tahminler)
 
-
+    
 
     X = veri.drop(columns=["hair_fall"])
     y = veri["hair_fall"]
@@ -93,6 +95,8 @@ def model_Train():
     X_egitim = ss.fit_transform(X_egitim)
     X_test = ss.transform(X_test)
 
+    print("modeller eğitiliyor")
+    
     rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
     svm_model = SVC(kernel="rbf", random_state=42, probability=True)
     logreg_model = LogisticRegression(random_state=42)
@@ -104,15 +108,24 @@ def model_Train():
     benim_modelim = BenimModelim()
 
     rf_model.fit(X_egitim, y_egitim)
+    print("rf_model modeli eğitildi")
     svm_model.fit(X_egitim, y_egitim)
+    print("svm_model modeli eğitildi")
     logreg_model.fit(X_egitim, y_egitim)
+    print("logreg_model modeli eğitildi")
     knn_model.fit(X_egitim, y_egitim)
+    print("knn_model modeli eğitildi")
     xgb_model.fit(X_egitim, y_egitim)
+    print("xgb_model modeli eğitildi")
     ann_model.fit(X_egitim, y_egitim)
+    print("ann_model modeli eğitildi")
     lgbm_model.fit(X_egitim, y_egitim)
+    print("lgbm_model modeli eğitildi")
     catboost_model.fit(X_egitim, y_egitim)
+    print("catboost_model modeli eğitildi")
     benim_modelim.fit(X_egitim, y_egitim)
-
+    print("benim_modelim modeli eğitildi")
+    
     rf_accuracy = accuracy_score(y_test, rf_model.predict(X_test))
     svm_accuracy = accuracy_score(y_test, svm_model.predict(X_test))
     logreg_accuracy = accuracy_score(y_test, logreg_model.predict(X_test))
