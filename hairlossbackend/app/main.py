@@ -18,7 +18,7 @@ app = FastAPI(
     description="FastAPI sunucusunun temel yapısı."
 )
 origins = [
-    "https://bespoke-pavlova-a1e252.netlify.app",
+    "https://kgdevhairloss.netlify.app/",
     "http://localhost:5173",
     "http://127.0.0.1:5173", 
 ]
