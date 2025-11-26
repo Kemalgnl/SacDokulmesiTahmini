@@ -49,21 +49,3 @@ def make_PhotoAnalayze(YandanPhoto: UploadFile = File(...),ArkadanPhoto: UploadF
     response=fotograflari_indir_ve_isle(YandanPhoto,ArkadanPhoto)
     
     return {"sonuc": response}
-
-async def restart_server():
-    url = "https://sacdokulmesitahmini-8.onrender.com/" 
-    while True:
-        try:
-            async with httpx.AsyncClient() as istemci:
-                await istemci.get(url)
-                print("Ping gönderildi!")
-        except Exception as hata:
-            print("Ping başarısız:", hata)
-        await asyncio.sleep(50) 
-
-@app.on_event("startup")
-async def uygulama_baslangici():
-    asyncio.create_task(restart_server())
-    print("Uygulama başlatıldı, ping döngüsü çalışıyor...")
-
-
