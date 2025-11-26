@@ -98,7 +98,7 @@ def model_Train():
     print("modeller eğitiliyor")
     
     rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
-    svm_model = SVC(kernel="rbf", random_state=42, probability=True)
+    #svm_model = SVC(kernel="rbf", random_state=42, probability=True)
     logreg_model = LogisticRegression(random_state=42)
     knn_model = KNeighborsClassifier(n_neighbors=5)
     xgb_model = XGBClassifier(n_estimators=100, random_state=42, learning_rate=0.05)
@@ -109,7 +109,7 @@ def model_Train():
 
     rf_model.fit(X_egitim, y_egitim)
     print("rf_model modeli eğitildi")
-    svm_model.fit(X_egitim, y_egitim)
+    #svm_model.fit(X_egitim, y_egitim)
     print("svm_model modeli eğitildi")
     logreg_model.fit(X_egitim, y_egitim)
     print("logreg_model modeli eğitildi")
@@ -127,7 +127,7 @@ def model_Train():
     print("benim_modelim modeli eğitildi")
     
     rf_accuracy = accuracy_score(y_test, rf_model.predict(X_test))
-    svm_accuracy = accuracy_score(y_test, svm_model.predict(X_test))
+    #svm_accuracy = accuracy_score(y_test, svm_model.predict(X_test))
     logreg_accuracy = accuracy_score(y_test, logreg_model.predict(X_test))
     knn_accuracy = accuracy_score(y_test, knn_model.predict(X_test))
     xgb_accuracy = accuracy_score(y_test, xgb_model.predict(X_test))
@@ -174,7 +174,7 @@ def model_Train():
 
 
     print(f"RF Modeli Doğruluğu: {rf_accuracy:.4f}")
-    print(f"SVM Modeli Doğruluğu: {svm_accuracy:.4f}")
+    #print(f"SVM Modeli Doğruluğu: {svm_accuracy:.4f}")
     print(f"Logistic Regression Modeli Doğruluğu: {logreg_accuracy:.4f}")
     print(f"KNN Modeli Doğruluğu: {knn_accuracy:.4f}")
     print(f"XGB Modeli Doğruluğu: {xgb_accuracy:.4f}")
