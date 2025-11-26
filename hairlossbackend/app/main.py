@@ -53,7 +53,7 @@ def make_PhotoAnalayze(YandanPhoto: UploadFile = File(...),ArkadanPhoto: UploadF
     return {"sonuc": response}
 
 async def restart_server():
-    url = "https://SacDokulmesiTahmini-1.onrender.com" 
+    url = "https://sacdokulmesitahmini-e3yo.onrender.com" 
     while True:
         try:
             async with httpx.AsyncClient() as istemci:
