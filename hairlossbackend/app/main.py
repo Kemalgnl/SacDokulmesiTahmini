@@ -20,7 +20,9 @@ app = FastAPI(
 origins = [
     "https://kgdevhairloss.netlify.app",
     "http://localhost:5173",
-    "http://127.0.0.1:5173", 
+    "http://127.0.0.1:5173",
+    "https://bundle-permissions-departmental-tramadol.trycloudflare.com", 
+
 ]
 
 app.add_middleware(
