@@ -4,16 +4,15 @@ ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1
 
 WORKDIR /app
-
 RUN python -m venv .venv
-
-COPY requirements.txt .
-RUN .venv/bin/pip install --no-cache-dir -r requirements.txt
+COPY requirements.txt ./
+RUN .venv/bin/pip install -r requirements.txt
 
 FROM python:3.12.12-slim
 
-WORKDIR /app
+RUN apt-get update && apt-get install -y build-essential libgomp1 && rm -rf /var/lib/apt/lists/*
 
+WORKDIR /app
 COPY --from=builder /app/.venv .venv/
 COPY . .
 
